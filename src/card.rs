@@ -4,7 +4,6 @@ use crate::{colors::get_color, random::get_random_card, structs::Card};
 use raylib::{ prelude::*};
 
 
-use crate::colors;
 
 
 impl Card {
