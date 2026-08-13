@@ -7,8 +7,9 @@ pub fn start() {
     let flop = Card::get_hand(3);
     let turn = Card::get_hand(1);
     let river = Card::get_hand(1);
+    let mut game_state: i32 = 0;
     while !rl.window_should_close() {
 
-        game::render(&mut rl, &thread, &cards, &flop, &turn, &river);
+        game::render(&mut rl, &thread, &cards, &flop, &turn, &river, &mut game_state);
     }
 }
