@@ -7,3 +7,10 @@ pub struct Player {
     pub name: String,
     pub chips: i32,
 }
+
+pub struct Game {
+    pub flop: Vec<Card>,
+    pub turn: Vec<Card>,
+    pub river: Vec<Card>
+
+}
