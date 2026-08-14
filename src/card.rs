@@ -1,23 +1,26 @@
 // this will handle a poker card, holding suit, rank, and other stuff.
 
-use crate::{colors::get_color, random::get_random_card, structs::{Card, Game}};
-use raylib::{ prelude::*};
-
-
-
+use crate::{
+    colors::get_color,
+    random::get_random_card,
+    structs::{Card, Game},
+};
+use raylib::prelude::*;
 
 impl Card {
-    pub fn render_card(suit: &'static str, rank: i32, width: i32, height: i32, x: i32, y: i32, d: &mut RaylibDrawHandle) {
-
+    pub fn render_card(
+        suit: &'static str,
+        rank: &'static str,
+        width: i32,
+        height: i32,
+        x: i32,
+        y: i32,
+        d: &mut RaylibDrawHandle,
+    ) {
         // render card
         let suit_color = get_color(suit);
         d.draw_rectangle(x, y, width, height, raylib::color::Color::WHITE);
-
-        if rank == 11 {
-            d.draw_text("A", x + 60, y, 40, suit_color);
-        } else {
-            d.draw_text(&rank.to_string(), x + 60, y, 40, suit_color);
-        }
+        d.draw_text(&rank.to_string(), x + 60, y, 40, suit_color);
     }
 
     pub fn get_hand(amount: i32) -> Vec<Card> {
@@ -57,6 +60,7 @@ impl Card {
         for card in &game.flop {
             Card::render_card(card.suit, card.rank, 150, 250, flop_x, 340, d);
             flop_x += 180;
+            println!("{}", card.rank);
         }
         for card in &game.turn {
             Card::render_card(card.suit, card.rank, 150, 250, turn_x, 340, d);
@@ -65,5 +69,4 @@ impl Card {
             Card::render_card(card.suit, card.rank, 150, 250, river_x, 340, d);
         }
     }
-
 }

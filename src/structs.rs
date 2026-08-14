@@ -1,6 +1,6 @@
 pub struct Card {
     pub suit: &'static str,
-    pub rank: i32,
+    pub rank: &'static str,
 }
 
 pub struct Player {
@@ -11,6 +11,5 @@ pub struct Player {
 pub struct Game {
     pub flop: Vec<Card>,
     pub turn: Vec<Card>,
-    pub river: Vec<Card>
-
+    pub river: Vec<Card>,
 }
